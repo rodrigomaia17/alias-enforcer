@@ -1,2 +1,4 @@
 nose
 nose-watch
+pep8
+autopep8
