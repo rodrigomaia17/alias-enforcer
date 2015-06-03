@@ -23,5 +23,6 @@ def getCommands():
 def convertToReversedAlias(alias):
     firstPart = alias.split('=', 1)[0]
     secondPart = alias.split('=', 1)[1]
-    return "Please use the alias '{}' instead of '{}'".format(firstPart,
+    finalPhrase = "alias {}=\"echo 'Please use the alias '{}' instead of '{}''\"".format(secondPart,firstPart,
                                                               secondPart)
+    return finalPhrase
