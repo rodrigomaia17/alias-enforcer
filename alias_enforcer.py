@@ -20,9 +20,13 @@ def getCommands():
             parcialCommand += " " + text
 
 
-def convertToReversedAlias(alias):
-    firstPart = alias.split('=', 1)[0]
-    secondPart = alias.split('=', 1)[1]
-    finalPhrase = "alias {}=\"echo 'Please use the alias '{}' instead of '{}''\"".format(secondPart,firstPart,
-                                                              secondPart)
-    return finalPhrase
+def convertToReversedAlias(aliasArray):
+    finalAliasArray = []
+    for alias in aliasArray:
+        firstPart = alias.split('=', 1)[0]
+        secondPart = alias.split('=', 1)[1]
+        finalPhrase = "alias {}=\"echo 'Please use the alias '{}' instead of '{}''\"".format(secondPart,firstPart,
+                                                                                             secondPart)
+        finalAliasArray.append(finalPhrase)
+
+    return finalAliasArray
