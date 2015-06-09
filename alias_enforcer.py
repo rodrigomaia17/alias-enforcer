@@ -1,7 +1,6 @@
 import sys
 
 commands = []
-parcialCommand = ""
 allArgs = sys.argv
 
 
@@ -12,6 +11,7 @@ def isNewCommand(text):
 
 
 def getCommands():
+    parcialCommand = ""
     for text in allArgs:
         if isNewCommand(text):
             commands.append(parcialCommand)
@@ -25,8 +25,9 @@ def convertToReversedAlias(aliasArray):
     for alias in aliasArray:
         firstPart = alias.split('=', 1)[0]
         secondPart = alias.split('=', 1)[1]
-        finalPhrase = "alias {}=\"echo 'Please use the alias '{}' instead of '{}''\"".format(secondPart,firstPart,
-                                                                                             secondPart)
+        finalPhrase = "".join(["alias {}=\"echo".format(secondPart),
+                               " 'Please use the alias '{}'".format(firstPart),
+                               " instead of '{}''\"".format(secondPart)])
         finalAliasArray.append(finalPhrase)
 
     return finalAliasArray
